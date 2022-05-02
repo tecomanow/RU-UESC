@@ -2,7 +2,7 @@ import './styles.css';
 import bootstrap from 'bootstrap'
 import { Input } from "../../Components/Input";
 import { Button } from 'react-bootstrap';
-import SideBar from '../../Components/SideBar';
+import SideBar from '../../Components/SideBar/exemplo2';
 import { List } from '../../Components/List';
 
 export function Home() {
