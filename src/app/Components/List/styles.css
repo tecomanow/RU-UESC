@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+  }
+  
+  .day-container {
+    display: flex;
+    text-align: center;
+    background-color: orange;
+    width: 99%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    padding: 20px;
+  }
+  .containerList {
+    flex-direction: column;
+    width: 700px;
+    height: 650px;
+    border-radius: 15px;
+    border-style: solid;
+    display: flex;
+    align-items: center;
+  }
+  
+  .tittle {
+    color: black;
+    background-color: orange;
+    width: 100%;
+    padding: 20px;
+    border-bottom: solid;
+    margin-top: 10px;
+  }
+  

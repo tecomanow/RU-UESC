@@ -1,8 +1,9 @@
-import { PrimeiraPaginaEx } from "./app/Pages/PrimeiraPaginaExemplo/PrimeiraPaginaEx";
+import React from 'react';
+import { Home } from "./app/Pages/Home/Home";
 
 function App() {
   return (
-    <PrimeiraPaginaEx></PrimeiraPaginaEx>
+    <Home></Home>
   );
 }
 

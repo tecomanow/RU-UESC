@@ -1,0 +1,15 @@
+.containers {
+  display: flex;
+  flex-wrap: inherit;
+  justify-content: left;
+  text-align: center;
+  background-color: orange;
+  align-items: center;
+}
+.container-menu {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-color: orange;
+  justify-content: center;
+}

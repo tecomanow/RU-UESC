@@ -1,4 +1,4 @@
-/*import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useField } from "@unform/core";
 
 export function Input(name, ...rest) {
@@ -20,4 +20,3 @@ export function Input(name, ...rest) {
     </>
   );
 }
-*/
