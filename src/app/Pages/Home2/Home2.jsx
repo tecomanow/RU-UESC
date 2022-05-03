@@ -1,7 +1,7 @@
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles.css';
-import { Sidebar } from '../../Components/SideBar/sidebar';
+import { Sidebar } from '../../Components/Sidebar/sidebar';
 import { List } from '../../Components/List';
 import { Link } from 'react-router-dom';
 

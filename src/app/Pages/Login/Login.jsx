@@ -1,8 +1,8 @@
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import './Login.css';
-import { Sidebar } from '../../Components/SideBar/sidebar';
-import '../../Components/SideBar/sidebar.css'
+import { Sidebar } from '../../Components/Sidebar/sidebar';
+import '../../Components/Sidebar/sidebar.css'
 
 
 export function LoginPage() {
