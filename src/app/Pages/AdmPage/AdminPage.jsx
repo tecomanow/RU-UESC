@@ -7,7 +7,7 @@ export function AdminPage() {
     return (
         <div className="App">
             <div className="pai">
-                <Sidebar></Sidebar>
+                <Sidebar btOn={"admin"}></Sidebar>
                 <div className="pai conteudo" >
                     <div className="container-xl">
                         <div className="table-responsive">
@@ -18,7 +18,7 @@ export function AdminPage() {
                                             <h2>Cardápios</h2>
                                         </Col>
                                         <Col>
-                                            <a href="#" className="btn btn-success" data-toggle="modal">Add novo cardápio</a>
+                                            <a href="/menu" className="btn btn-success" data-toggle="modal">Add novo cardápio</a>
                                             <a href="#" className="btn btn-danger" data-toggle="modal">Remover</a>
                                         </Col>
                                     </Row>

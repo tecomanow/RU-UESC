@@ -1,19 +1,28 @@
+import { Container, Form, Button, Row, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
 import './styles.css';
-import bootstrap from 'bootstrap'
-import { Input } from "../../Components/Input";
-import { Button } from 'react-bootstrap';
-import SideBar from '../../Components/Sidebar/sidebar';
+import { Sidebar } from '../../Components/Sidebar/sidebar';
 import { List } from '../../Components/List';
+import { Link } from 'react-router-dom';
+
 
 export function Home() {
     return (
-      <>
-      <div className='containers'>
-        <SideBar></SideBar>
-        <div className='container-menu'>
-          <List></List>
+        <div className="App">
+            <div className="pai">
+                <Sidebar btOn={"home"}></Sidebar>
+                <div className="pai conteudo" >
+                    <Container className="mt-5">
+                        <Row >
+                            <Col lg={12} md={12} sm={12}>
+                                <div className='form-signin'>
+                                    <List></List>
+                                </div>
+                            </Col>
+                        </Row>
+                    </Container>
+                </div>
+            </div>
         </div>
-      </div>
-      </>
     );
-  }
+}

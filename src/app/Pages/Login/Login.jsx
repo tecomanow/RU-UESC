@@ -3,18 +3,22 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './Login.css';
 import { Sidebar } from '../../Components/Sidebar/sidebar';
 import '../../Components/Sidebar/sidebar.css'
+import { useNavigate } from 'react-router-dom';
 
 
 export function LoginPage() {
+    
+    const navigate = useNavigate();
+
     return (
         <div className="App">
             <div className="pai">
-                <Sidebar></Sidebar>
+                <Sidebar btOn={"login"}></Sidebar>
                 <div className="pai conteudo" >
                     <Container className="mt-5">
                         <Row >
                             <Col lg={12} md={12} sm={12}>
-                                <Form className="form-signin">
+                                <Form className="form-signin" onSubmit={() => navigate("/admin")}>
 
                                     <img class="mb-4" src="https://propp.uesc.br/propp/img/logo_uesc.png" alt="" width="72" height="82"></img>
                                     <h1 class="h3 mb-3 font-weight-normal">Entrar</h1>

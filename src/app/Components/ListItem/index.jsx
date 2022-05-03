@@ -27,11 +27,6 @@ const ListItem = ({name}) => {
   const handleClose3 = () => setOpen3(false);
   return (
     <div className="Item-container">
-          <Box
-    />
-      <div className='Item-header'>
-        <p className='Text'>{name}</p>
-      </div>
       <div className='Button-container'>
         <div className="Item-field">
         <Button onClick={handleOpen} variant="contained">Café</Button>
