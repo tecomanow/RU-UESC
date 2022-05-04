@@ -59,7 +59,22 @@ const ListItem = ({name}) => {
               Almoço
             </Typography>
             <Typography id="modal-modal-description2" sx={{ mt: 2 }}>
-              Aqui vai uma tabela sobre o almoço
+            1 - Carne cozida<br></br>
+              2 - Fricassê de carne<br></br>
+              3 - Soja<br></br>
+              4 - Pirão<br></br>
+              5 - Alcega<br></br>
+              5 - Abóbora<br></br>
+              <br></br>
+              Vegetariano
+              <br></br>
+              1 - Lentilha<br></br>
+              2 - Arroz integral<br></br>
+              3 - Fricassê de soja<br></br>
+              <br></br>
+              Sucos
+              <br></br>
+              1 - Frutas<br></br>
             </Typography>
           </Box>
           </Modal>

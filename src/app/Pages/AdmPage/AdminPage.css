@@ -3,6 +3,7 @@
     padding: 20px 25px;
     border-radius: 3px;
     min-width: 1000px;
+    height: 500px;
     box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
 }
 
@@ -12,6 +13,7 @@
 
 .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
     width: 100%;
+    
     /* padding-right: 15px; */
     padding-left: 15px;
     margin-right: auto;

@@ -5,12 +5,16 @@ import { Sidebar } from '../../Components/Sidebar/sidebar';
 import { List } from '../../Components/List';
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import ListItem from '../../Components/ListItem';
+import DatePicker from 'react-date-picker';
 
 export function Menu() {
   
+    {/*const [value, onChange] = useState(new Date());*/}
+
     return (
 <div className="App">
             <div className="pai">
+                <Sidebar btOn={"admin"}></Sidebar>
                 <div className="pai conteudo" >
                     <div className="container-xl">
                         <div className="table-responsive">
@@ -22,6 +26,15 @@ export function Menu() {
                                         </Col>
                                     </Row>
                                 </div>
+                                <Row>
+                                    <Col>
+                                        <span>Selecione a data</span>
+                                    </Col>
+                                    <Col>
+                                        <DatePicker></DatePicker>
+                                        {/*https://www.npmjs.com/package/react-date-picker*/}
+                                    </Col>
+                                </Row>
                                 <table className="table table-striped table-hover">
                                     <thead>
                                         <tr>

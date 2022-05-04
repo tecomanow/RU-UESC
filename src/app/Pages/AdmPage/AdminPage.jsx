@@ -27,37 +27,38 @@ export function AdminPage() {
                                     <thead>
                                         <tr>
                                             <th><span><input type="checkbox"></input></span></th>
+                                            <th>Dia</th>
                                             <th>Data</th>
-                                            <th>Tipo de cardápio</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <td><span><input type="checkbox" name="options[]" value="1"></input></span></td>
+                                        <td>Segunda-feira</td>
                                         <td>02/05/2022</td>
-                                        <td>Café da manhã</td>
                                         <td>
-                                            <a href="#" ><i class="bi bi-pencil"></i></a>
+                                            <a href="#" className="btn btn-success" >Editar</a>
                                             <a href="#" className="btn btn-danger" >Deletar</a>
                                         </td>
                                     </tbody>
                                     <tbody>
                                         <td><span><input type="checkbox" name="options[]" value="1"></input></span></td>
-                                        <td>02/05/2022</td>
-                                        <td>Almoço</td>
+                                        <td>Terça-feira</td>
+                                        <td>03/05/2022</td>
                                         <td>
-                                            <a href="#" ><i class="bi bi-pencil"></i></a>
+                                            <a href="#" className="btn btn-success" >Editar</a>
                                             <a href="#" className="btn btn-danger" >Deletar</a>
                                         </td>
                                     </tbody>
                                     <tbody>
                                         <td><span><input type="checkbox" name="options[]" value="1"></input></span></td>
-                                        <td>02/05/2022</td>
-                                        <td>Janta</td>
+                                        <td>Quarta-feira</td>
+                                        <td>04/05/2022</td>
                                         <td>
-                                            <a href="#" ><i class="bi bi-pencil"></i></a>
+                                            <a href="#" className="btn btn-success" >Editar</a>
                                             <a href="#" className="btn btn-danger" >Deletar</a>
                                         </td>
                                     </tbody>
+
                                 </table>
                             </div>
                         </div>
