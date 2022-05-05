@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 export function LoginPage() {
-    
+
     const navigate = useNavigate();
 
     return (
@@ -28,7 +28,7 @@ export function LoginPage() {
                                     <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required=""></input>
 
                                     <button class="btn btn-lg btn-primary w-100" type="submit">Entrar</button>
-                                    <p class="mt-5 mb-3 text-muted">Ciência da Computação - 2022.1</p>
+                                    <i class="mt-4 mb-3 text-muted d-block">Ciência da Computação - 2022.1</i>
                                 </Form>
                             </Col>
                         </Row>

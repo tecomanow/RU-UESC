@@ -17,8 +17,8 @@ export function AdminPage() {
                                         <Col>
                                             <h2>Cardápios</h2>
                                         </Col>
-                                        <Col>
-                                            <a href="/menu" className="btn btn-success" data-toggle="modal">Add novo cardápio</a>
+                                        <Col style={{ margin: "auto 0" }}> {/* Centralizando verticalmente */}
+                                            <a href="/menu" className="btn btn-success me-2" data-toggle="modal">Adicionar novo cardápio</a>
                                             <a href="#" className="btn btn-danger" data-toggle="modal">Remover</a>
                                         </Col>
                                     </Row>
@@ -31,31 +31,31 @@ export function AdminPage() {
                                             <th>Data</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody className="align-middle">
                                         <td><span><input type="checkbox" name="options[]" value="1"></input></span></td>
                                         <td>Segunda-feira</td>
                                         <td>02/05/2022</td>
-                                        <td>
-                                            <a href="#" className="btn btn-success" >Editar</a>
-                                            <a href="#" className="btn btn-danger" >Deletar</a>
+                                        <td className='py-2'>
+                                            <a href="#" className="btn btn-outline-success me-2">Editar</a>
+                                            <a href="#" className="btn btn-outline-danger" >Deletar</a>
                                         </td>
                                     </tbody>
-                                    <tbody>
+                                    <tbody className="align-middle">
                                         <td><span><input type="checkbox" name="options[]" value="1"></input></span></td>
                                         <td>Terça-feira</td>
                                         <td>03/05/2022</td>
-                                        <td>
-                                            <a href="#" className="btn btn-success" >Editar</a>
-                                            <a href="#" className="btn btn-danger" >Deletar</a>
+                                        <td className='py-2'>
+                                            <a href="#" className="btn btn-outline-success me-2" >Editar</a>
+                                            <a href="#" className="btn btn-outline-danger" >Deletar</a>
                                         </td>
                                     </tbody>
-                                    <tbody>
+                                    <tbody className="align-middle">
                                         <td><span><input type="checkbox" name="options[]" value="1"></input></span></td>
                                         <td>Quarta-feira</td>
                                         <td>04/05/2022</td>
-                                        <td>
-                                            <a href="#" className="btn btn-success" >Editar</a>
-                                            <a href="#" className="btn btn-danger" >Deletar</a>
+                                        <td className='py-2'>
+                                            <a href="#" className="btn btn-outline-success me-2" >Editar</a>
+                                            <a href="#" className="btn btn-outline-danger" >Deletar</a>
                                         </td>
                                     </tbody>
 

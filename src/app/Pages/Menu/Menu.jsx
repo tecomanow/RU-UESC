@@ -8,11 +8,11 @@ import ListItem from '../../Components/ListItem';
 import DatePicker from 'react-date-picker';
 
 export function Menu() {
-  
-    {/*const [value, onChange] = useState(new Date());*/}
+
+    {/*const [value, onChange] = useState(new Date());*/ }
 
     return (
-<div className="App">
+        <div className="App">
             <div className="pai">
                 <Sidebar btOn={"admin"}></Sidebar>
                 <div className="pai conteudo" >
@@ -42,8 +42,8 @@ export function Menu() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                      <ListItem></ListItem>
-                                        <a href="/admin" className="btn btn-success" data-toggle="modal">Salvar</a>
+                                        <ListItem></ListItem>
+                                        <a href="/admin" className="btn btn-success me-3" data-toggle="modal">Salvar</a>
                                         <a href="/admin" className="btn btn-danger" data-toggle="modal">Cancelar</a>
                                     </tbody>
                                 </table>
@@ -55,4 +55,4 @@ export function Menu() {
         </div>
 
     );
-  }
+}
