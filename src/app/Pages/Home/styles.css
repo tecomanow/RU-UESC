@@ -156,5 +156,33 @@ input {
     margin-top: 20px;
 }
 
+.containerLayout {
+  width: 90%;
+  height: 100%;
+  background-color: aliceblue;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  ;
+}
+.containerMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.containerItem{
+  height: 180px;
+  padding: 10px;
+  display: flex;
+}
+.mark{
+  background-color: #435d7d;
+  width: 3px;
+  height: 30px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.text{
+  color: #435d7d;
+  font-size: larger;
+}
 
 

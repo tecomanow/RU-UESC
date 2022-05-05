@@ -12,15 +12,25 @@ export function Home() {
             <div className="pai">
                 <Sidebar btOn={"home"}></Sidebar>
                 <div className="pai conteudo" >
-                    <Container className="mt-5">
-                        <Row >
-                            <Col lg={12} md={12} sm={12}>
-                                <div className='form-signin'>
-                                    <List></List>
-                                </div>
-                            </Col>
-                        </Row>
-                    </Container>
+                    <div className='containerLayout'>
+                        <h1>Cardápio do dia</h1>
+                        <h3>Qui, 04 de maio de 2022</h3>
+
+                        <div className='containerMenu'>
+                            <div className='containerItem'>
+                                <div className='mark'></div>
+                                <h4 className='text'>Café da manhã</h4>
+                            </div>
+                            <div className='containerItem'>
+                                <div className='mark'></div>
+                                <h4 className='text'>Almoço</h4>
+                            </div>
+                            <div className='containerItem'>
+                                <div className='mark'></div>
+                                <h4  className='text'>Janta</h4>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
