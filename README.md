@@ -36,7 +36,7 @@ yarn add react-bootstrap
 ```
 
 
-## Desenvolvedor
+## Desenvolvedores
 
 | <img src="https://avatars.githubusercontent.com/u/51213060?v=4" width=115><br>[Mateus Reis](https://github.com/tecomanow) |
 | :----------------------------------------------------------- |
