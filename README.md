@@ -19,13 +19,13 @@ Clone o projeto ou faça o download:
 git clone https://github.com/tecomanow/RU-UESC
 ```
 
-Na raiz do projeto, abra o terminal e digite 
+Abra o terminal e digite 
 
 ```
 npm install --global yarn
 ```
 
-Precisará adicionar as dependências para o react bootstrap e o react router. Ainda na raiz do projeto, digite:
+Precisará adicionar as dependências para o react bootstrap e o react router. Na raiz do projeto abra o terminal e digite:
 
 ```
 yarn add react-router-dom
