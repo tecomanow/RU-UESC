@@ -13,6 +13,12 @@ Font-End
 
 Baixe o NodeJS <a href="https://nodejs.org/en/download/">aqui</a>
 
+Clone o projeto ou faça o download: 
+
+```
+git clone https://github.com/tecomanow/RU-UESC
+```
+
 Na raiz do projeto, abra o terminal e digite 
 
 ```
@@ -28,13 +34,6 @@ yarn add react-router-dom
 ```
 yarn add react-bootstrap
 ```
-
-Clone o projeto ou faça o download: 
-
-```
-git clone https://github.com/tecomanow/RU-UESC
-```
-
 
 
 ## Desenvolvedor
