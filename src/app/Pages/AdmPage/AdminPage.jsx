@@ -2,8 +2,46 @@ import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import './AdminPage.css'
 import { Sidebar } from '../../Components/Sidebar/sidebar';
+import { useEffect, useState } from 'react';
+import { Api } from '../../../infrastructure/Api';
 
 export function AdminPage() {
+
+    //lista estatica, falta organizar o conteudo na lista
+    const [menu, setMenu] = useState([
+        {
+            id:"1",
+            day:"Segunda", 
+            date:"01/06",
+        },
+        {
+            id:"2",
+            day:"Terça", 
+            date:"02/06",
+        },
+        {
+            id:"3",
+            day:"Quarta", 
+            date:"03/06",
+        }
+    ])
+
+    useEffect(() => {
+        getAllMenus()
+    })
+
+    const getAllMenus = async ()=> {
+        //CHAMADA API
+
+        //const response = await Api.get("menu");
+        //setMenu(response);
+    }
+
+    const deleteMenu = async ()=> {
+        //await Api.delete(`menu/${id}`)
+        console.log("deletado");
+    }
+
     return (
         <div className="App">
             <div className="pai">
@@ -31,34 +69,22 @@ export function AdminPage() {
                                             <th>Data</th>
                                         </tr>
                                     </thead>
-                                    <tbody className="align-middle">
-                                        <td><span><input type="checkbox" name="options[]" value="1"></input></span></td>
-                                        <td>Segunda-feira</td>
-                                        <td>02/05/2022</td>
-                                        <td className='py-2'>
-                                            <a href="#" className="btn btn-outline-success me-2">Editar</a>
-                                            <a href="#" className="btn btn-outline-danger" >Deletar</a>
-                                        </td>
-                                    </tbody>
-                                    <tbody className="align-middle">
-                                        <td><span><input type="checkbox" name="options[]" value="1"></input></span></td>
-                                        <td>Terça-feira</td>
-                                        <td>03/05/2022</td>
-                                        <td className='py-2'>
-                                            <a href="#" className="btn btn-outline-success me-2" >Editar</a>
-                                            <a href="#" className="btn btn-outline-danger" >Deletar</a>
-                                        </td>
-                                    </tbody>
-                                    <tbody className="align-middle">
-                                        <td><span><input type="checkbox" name="options[]" value="1"></input></span></td>
-                                        <td>Quarta-feira</td>
-                                        <td>04/05/2022</td>
-                                        <td className='py-2'>
-                                            <a href="#" className="btn btn-outline-success me-2" >Editar</a>
-                                            <a href="#" className="btn btn-outline-danger" >Deletar</a>
-                                        </td>
-                                    </tbody>
 
+                                        {
+                                            menu.map((menu) => (
+                                                <tbody className="align-middle">
+
+                                                <td><span><input type="checkbox" name="options[]" value="1"></input></span></td>
+                                                <td>{menu.day}</td>
+                                                <td>{menu.date}</td>
+                                                <td className='py-2'>
+                                                    <a href="/product/{menu.id}" className="btn btn-outline-success me-2">Editar</a>
+                                                    <button onClick={()=> deleteMenu(menu.id)} className="btn btn-outline-danger" >Deletar</button>
+                                                </td>
+                                                </tbody>
+                                            ))
+                                        }
+                                    
                                 </table>
                             </div>
                         </div>

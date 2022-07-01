@@ -4,11 +4,14 @@ import './Login.css';
 import { Sidebar } from '../../Components/Sidebar/sidebar';
 import '../../Components/Sidebar/sidebar.css'
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { LoginForm } from '../../Components/LoginForm';
 
 
 export function LoginPage() {
 
     const navigate = useNavigate();
+
 
     return (
         <div className="App">
@@ -18,18 +21,8 @@ export function LoginPage() {
                     <Container className="mt-5">
                         <Row >
                             <Col lg={12} md={12} sm={12}>
-                                <Form className="form-signin" onSubmit={() => navigate("/admin")}>
-
-                                    <img class="mb-4" src="https://propp.uesc.br/propp/img/logo_uesc.png" alt="" width="72" height="82"></img>
-                                    <h1 class="h3 mb-3 font-weight-normal">Entrar</h1>
-                                    <label for="inputEmail" class="sr-only">Endereço de email</label>
-                                    <input type="email" id="inputEmail" class="form-control" placeholder="Endereço de email" required="" autofocus=""></input>
-                                    <label for="inputPassword" class="sr-only">Senha</label>
-                                    <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required=""></input>
-
-                                    <button class="btn btn-lg btn-primary w-100" type="submit">Entrar</button>
-                                    <i class="mt-4 mb-3 text-muted d-block">Ciência da Computação - 2022.1</i>
-                                </Form>
+                                <LoginForm>
+                                </LoginForm>
                             </Col>
                         </Row>
                     </Container>

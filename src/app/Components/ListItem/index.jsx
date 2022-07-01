@@ -65,15 +65,53 @@ const ListItem = ({ name }) => {
           <Modal
             open={open}
             onClose={handleClose}
-            aria-labelledby="modal-modal-title"
+            aria-labelledby="modal-modal-title2"
             aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
-              <Typography id="modal-modal-title" variant="h6" component="h2">
-                Café da Manhã
+              <Typography id="modal-modal-title2" variant="h6" component="h2">
+                Café
               </Typography>
-              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              <Typography id="modal-modal-description2" sx={{ mt: 2 }}>
 
+                <Form className="form-signin">
+                  <label for="inputEmail" class="sr-only">Fruta</label>
+                  <input type="text" id="inputEmail" class="form-control" placeholder="Fruta" required="" autofocus=""></input>
+
+                  <span>Complementos</span>
+
+                  <label for="inputEmail" class="sr-only">Complemento</label>
+                  <input type="text" id="inputEmail" class="form-control" placeholder="Complemento" required="" autofocus=""></input>
+                  <div id="inputsFields"></div>
+                  <button class="btn btn-primary w-100" id="addComplement" onClick={addComplement}>Novo complemento</button>
+
+                  <span>Sucos</span>
+
+                  <label for="inputEmail" class="sr-only">Suco</label>
+                  <input type="text" id="inputEmail" class="form-control" placeholder="Suco" required="" autofocus=""></input>
+                  <div id="inputsFieldsSuco"></div>
+
+                  <button class="btn btn-primary w-100">Novo suco</button>
+
+                  <button class="btn btn-lg btn-primary w-30" type="submit">Salvar</button>
+                </Form>
+
+                {/*1 - Carne cozida<br></br>
+                2 - Fricassê de carne<br></br>
+                3 - Soja<br></br>
+                4 - Pirão<br></br>
+                5 - Alcega<br></br>
+                5 - Abóbora<br></br>
+                <br></br>
+                Vegetariano
+                <br></br>
+                1 - Lentilha<br></br>
+                2 - Arroz integral<br></br>
+                3 - Fricassê de soja<br></br>
+                <br></br>
+                Sucos
+                <br></br>
+              1 - Frutas<br></br>*/}
               </Typography>
             </Box>
           </Modal>
@@ -138,19 +176,57 @@ const ListItem = ({ name }) => {
           </Modal>
         </div>
         <div className="Item-field">
-          <Button onClick={handleOpen3} variant="contained">Jantar</Button>
+          <Button onClick={handleOpen} variant="contained">Café</Button>
           <Modal
-            open={open3}
-            onClose={handleClose3}
-            aria-labelledby="modal-modal-title3"
-            aria-describedby="modal-modal-description3"
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title2"
+            aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
-              <Typography id="modal-modal-title3" variant="h6" component="h2">
+              <Typography id="modal-modal-title2" variant="h6" component="h2">
                 Jantar
               </Typography>
-              <Typography id="modal-modal-description3" sx={{ mt: 2 }}>
-                Aqui vai uma tabela sobre o jantar
+              <Typography id="modal-modal-description2" sx={{ mt: 2 }}>
+
+                <Form className="form-signin">
+                  <label for="inputEmail" class="sr-only">Fruta</label>
+                  <input type="text" id="inputEmail" class="form-control" placeholder="Fruta" required="" autofocus=""></input>
+
+                  <span>Complementos</span>
+
+                  <label for="inputEmail" class="sr-only">Complemento</label>
+                  <input type="text" id="inputEmail" class="form-control" placeholder="Complemento" required="" autofocus=""></input>
+                  <div id="inputsFields"></div>
+                  <button class="btn btn-primary w-100" id="addComplement" onClick={addComplement}>Novo complemento</button>
+
+                  <span>Sucos</span>
+
+                  <label for="inputEmail" class="sr-only">Suco</label>
+                  <input type="text" id="inputEmail" class="form-control" placeholder="Suco" required="" autofocus=""></input>
+                  <div id="inputsFieldsSuco"></div>
+
+                  <button class="btn btn-primary w-100">Novo suco</button>
+
+                  <button class="btn btn-lg btn-primary w-30" type="submit">Salvar</button>
+                </Form>
+
+                {/*1 - Carne cozida<br></br>
+                2 - Fricassê de carne<br></br>
+                3 - Soja<br></br>
+                4 - Pirão<br></br>
+                5 - Alcega<br></br>
+                5 - Abóbora<br></br>
+                <br></br>
+                Vegetariano
+                <br></br>
+                1 - Lentilha<br></br>
+                2 - Arroz integral<br></br>
+                3 - Fricassê de soja<br></br>
+                <br></br>
+                Sucos
+                <br></br>
+              1 - Frutas<br></br>*/}
               </Typography>
             </Box>
           </Modal>
