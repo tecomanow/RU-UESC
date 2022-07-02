@@ -165,13 +165,14 @@ input {
 }
 .containerMenu {
   display: flex;
-  flex-direction: column;
+  
   align-items: flex-start;
+  position: relative;
 }
 .containerItem{
-  height: 180px;
   padding: 10px;
   display: flex;
+  position: relative;
 }
 .mark{
   background-color: #435d7d;
@@ -183,6 +184,10 @@ input {
 .text{
   color: #435d7d;
   font-size: larger;
+}
+
+.table {
+  margin-top: 50px;
 }
 
 
