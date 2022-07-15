@@ -1,239 +1,130 @@
-import { Box, Button, Modal, Typography } from '@mui/material';
-import { Form } from 'react-bootstrap';
-import React from 'react';
+import React, { useEffect, useRef, useState } from "react";
+import { Box, Button, Modal, Typography, TextField } from '@mui/material';
+//import { Form } from 'react-bootstrap';
+import { FormHandles, SubmitHandler, Scope } from "@unform/core";
+import { Form } from "@unform/web";
 import './styles.css';
 import { margin } from '@mui/system';
-
-
-
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  
-  boxShadow: 24,
-  p: 4,
-};
+import { Input } from '../Input';
+import * as Yup from "yup";
+import DatePickerInput from "../DatePicker";
 
 const ListItem = ({ name }) => {
 
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-  const [open2, setOpen2] = React.useState(false);
-  const handleOpen2 = () => setOpen2(true);
-  const handleClose2 = () => setOpen2(false);
-  const [open3, setOpen3] = React.useState(false);
-  const handleOpen3 = () => setOpen3(true);
-  const handleClose3 = () => setOpen3(false);
+  const formRef = useRef(null);
 
-  function addComplement() {
-    const div = document.getElementById('inputsFields');
+  const handleSubmit = async (data, { reset }) => {
+    console.log(data);
+    try {
+      const schema = Yup.object().shape({
+        day: Yup.object().shape({
+        breakfast_main: Yup.string(),
+        breakfast_juice: Yup.string(),
+        breakfast_bread: Yup.string(),
+        breakfast_fruit: Yup.string(),
+        }),
+        noon: Yup.object().shape({
+          lunch_main: Yup.string(),
+          lunch_juice: Yup.string(),
+          lunch_salad: Yup.string(),
+          lunch_side_dish: Yup.string(),
+        }),
+        night: Yup.object().shape({
+        dinner_side_dish: Yup.string(),
+        dinner_juice: Yup.string(),
+        dinner_bread: Yup.string(),
+        dinner_fruit: Yup.string(),
+        }),
+        date: Yup.string(),
+      });
 
-    var html =  '';
-    
-    html += '<div>'
-    html += '<label for="inputEmail" class="sr-only">Endereço de email</label>'
-    html += '<input type="text" id="inputPassword" class="form-control" placeholder="Complemento" required=""></input>'
-    html += '<button class="btn btn-danger w-30">Deletar</button>'
-    html += '</div>'
+      await schema.validate(data, {
+        abortEarly: false,
+      });
+      formRef.current?.setErrors({});
+      console.log(data);
+      //userRepository.postToken(data);
+    } catch (err) {
+      if (err instanceof Yup.ValidationError) {
+        let errorMessages = {};
+        err.inner.forEach((error) => {
+            errorMessages[error.path] = error.message;
+          
+        });
 
-    div.insertAdjacentHTML('beforeend', html)
-  }
-
-  function addSuco() {
-    const div = document.getElementById('inputsFieldsSuco');
-
-    var html =  '';
-    html += '<div>'
-    html += '<label for="inputEmail" class="sr-only">Suco</label>'
-    html += '<input type="text" id="inputPassword" class="form-control" placeholder="Suco" required=""></input>'
-    html += '<button class="btn btn-danger w-30" onClick={deleteSuco}>Deletar</button>'
-    html += '</div>'
-
-    div.insertAdjacentHTML('beforeend', html)
-  }
+        formRef.current?.setErrors(errorMessages);
+      }
+    }
+  };
 
   return (
-    <div className="Item-container">
-      <div className='Button-container'>
-        <div className="Item-field">
-          <Button onClick={handleOpen} variant="contained">Café</Button>
-          <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title2"
-            aria-describedby="modal-modal-description"
-          >
-            <Box sx={style}>
-              <Typography id="modal-modal-title2" variant="h6" component="h2">
-                Café
-              </Typography>
-              <Typography id="modal-modal-description2" sx={{ mt: 2 }}>
+    <>
+            <Box
+      sx={{
+        '& > :not(style)': { m: 5, width: '90ch' },
+      }}>
+      <Form
+        ref={formRef}
+        onSubmit={handleSubmit}>
+                      <div style={{  display: 'flex',
+  flexDirection: 'row'}}>
+                        
+             
+            <div style={{  display: 'flex',
+  flexDirection: 'column', margin: 10}}>
+    <h4 style={{textAlign: "center"}}>Café da manhã</h4>
+      <Scope path="day">
+              <Input name="breakfast_main" placeholder={"Principais"}/>
+              <Input name="breakfast_juice" placeholder={"Suco"}/>
+              <Input name="breakfast_bread" placeholder={"Pães"}/>
+              <Input name="breakfast_fruit" placeholder={"Frutas"}/>
 
-                <Form className="form-signin">
-                  <label for="inputEmail" class="sr-only">Fruta</label>
-                  <input type="text" id="inputEmail" class="form-control" placeholder="Fruta" required="" autofocus=""></input>
+      </Scope>
 
-                  <span>Complementos</span>
+            </div>
 
-                  <label for="inputEmail" class="sr-only">Complemento</label>
-                  <input type="text" id="inputEmail" class="form-control" placeholder="Complemento" required="" autofocus=""></input>
-                  <div id="inputsFields"></div>
-                  <button class="btn btn-primary w-100" id="addComplement" onClick={addComplement}>Novo complemento</button>
 
-                  <span>Sucos</span>
+            <div style={{  display: 'flex',
+  flexDirection: 'column', margin: 10}}>
+    <h4 style={{textAlign: "center"}}>Almoço</h4>
+    <Scope path="noon">
+              <Input name="lunch_main" placeholder={"Principais"}/>
+              <Input name="lunch_juice" placeholder={"Suco"}/>
+              <Input name="lunch_salad" placeholder={"Salada"}/>
+              <Input name="lunch_side_dish" placeholder={"Acompanhamento"}/>
 
-                  <label for="inputEmail" class="sr-only">Suco</label>
-                  <input type="text" id="inputEmail" class="form-control" placeholder="Suco" required="" autofocus=""></input>
-                  <div id="inputsFieldsSuco"></div>
+    </Scope>
+            </div>
+            <div style={{  display: 'flex',
+  flexDirection: 'column', margin: 10}}>
+    <h4 style={{textAlign: "center"}}>Jantar</h4>
+    <Scope path="night">
+              <Input name="dinner_side_dish" placeholder={"Acompanhamento"}/>
+              <Input name="dinner_juice" placeholder={"Suco"}/>
+              <Input name="dinner_bread" placeholder={"Pães"}/>
+              <Input name="dinner_fruit" placeholder={"Frutas"}/> 
+    </Scope>
+            </div>
+            </div>
+            <div style={{  display: 'flex',
+   justifyContent: 'center'}}>
+    <DatePickerInput name={"aqui"}>
 
-                  <button class="btn btn-primary w-100">Novo suco</button>
+    </DatePickerInput>
+              <Button
+                variant="contained"
+                type="submit"
+              >
+               Enviar
+              </Button>
+              <a style={{  marginLeft: 20}} href="/admin" className="btn btn-danger" data-toggle="modal">Cancelar</a>
+            </div>
+          </Form>
+        </Box>
 
-                  <button class="btn btn-lg btn-primary w-30" type="submit">Salvar</button>
-                </Form>
+    </>
+  )
+}
 
-                {/*1 - Carne cozida<br></br>
-                2 - Fricassê de carne<br></br>
-                3 - Soja<br></br>
-                4 - Pirão<br></br>
-                5 - Alcega<br></br>
-                5 - Abóbora<br></br>
-                <br></br>
-                Vegetariano
-                <br></br>
-                1 - Lentilha<br></br>
-                2 - Arroz integral<br></br>
-                3 - Fricassê de soja<br></br>
-                <br></br>
-                Sucos
-                <br></br>
-              1 - Frutas<br></br>*/}
-              </Typography>
-            </Box>
-          </Modal>
-        </div>
-        <div className="Item-field">
-          <Button onClick={handleOpen2} variant="contained">Almoço</Button>
-          <Modal
-            open={open2}
-            onClose={handleClose2}
-            aria-labelledby="modal-modal-title2"
-            aria-describedby="modal-modal-description"
-          >
-            <Box sx={style}>
-              <Typography id="modal-modal-title2" variant="h6" component="h2">
-                Almoço
-              </Typography>
-              <Typography id="modal-modal-description2" sx={{ mt: 2 }}>
-
-                <Form className="form-signin">
-                  <label for="inputEmail" class="sr-only">1° Proteína</label>
-                  <input type="text" id="inputEmail" class="form-control" placeholder="1° Proteína" required="" autofocus=""></input>
-                  <label for="inputPassword" class="sr-only">2° Proteína</label>
-                  <input type="text" id="inputPassword" class="form-control" placeholder="2° Proteína" required=""></input>
-
-                  <span>Complementos</span>
-
-                  <label for="inputEmail" class="sr-only">Complemento</label>
-                  <input type="text" id="inputEmail" class="form-control" placeholder="Complemento" required="" autofocus=""></input>
-                  <div id="inputsFields"></div>
-
-                  <button class="btn btn-primary w-100" id="addComplement" onClick={addComplement}>Novo complemento</button>
-
-                  <span>Sucos</span>
-
-                  <label for="inputEmail" class="sr-only">Suco</label>
-                  <input type="text" id="inputEmail" class="form-control" placeholder="Suco" required="" autofocus=""></input>
-                  <div id="inputsFieldsSuco"></div>
-
-                  <button class="btn btn-primary w-100">Novo suco</button>
-
-                  <button class="btn btn-lg btn-primary w-30" type="submit">Salvar</button>
-                </Form>
-
-                {/*1 - Carne cozida<br></br>
-                2 - Fricassê de carne<br></br>
-                3 - Soja<br></br>
-                4 - Pirão<br></br>
-                5 - Alcega<br></br>
-                5 - Abóbora<br></br>
-                <br></br>
-                Vegetariano
-                <br></br>
-                1 - Lentilha<br></br>
-                2 - Arroz integral<br></br>
-                3 - Fricassê de soja<br></br>
-                <br></br>
-                Sucos
-                <br></br>
-              1 - Frutas<br></br>*/}
-              </Typography>
-            </Box>
-          </Modal>
-        </div>
-        <div className="Item-field">
-          <Button onClick={handleOpen} variant="contained">Café</Button>
-          <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title2"
-            aria-describedby="modal-modal-description"
-          >
-            <Box sx={style}>
-              <Typography id="modal-modal-title2" variant="h6" component="h2">
-                Jantar
-              </Typography>
-              <Typography id="modal-modal-description2" sx={{ mt: 2 }}>
-
-                <Form className="form-signin">
-                  <label for="inputEmail" class="sr-only">Fruta</label>
-                  <input type="text" id="inputEmail" class="form-control" placeholder="Fruta" required="" autofocus=""></input>
-
-                  <span>Complementos</span>
-
-                  <label for="inputEmail" class="sr-only">Complemento</label>
-                  <input type="text" id="inputEmail" class="form-control" placeholder="Complemento" required="" autofocus=""></input>
-                  <div id="inputsFields"></div>
-                  <button class="btn btn-primary w-100" id="addComplement" onClick={addComplement}>Novo complemento</button>
-
-                  <span>Sucos</span>
-
-                  <label for="inputEmail" class="sr-only">Suco</label>
-                  <input type="text" id="inputEmail" class="form-control" placeholder="Suco" required="" autofocus=""></input>
-                  <div id="inputsFieldsSuco"></div>
-
-                  <button class="btn btn-primary w-100">Novo suco</button>
-
-                  <button class="btn btn-lg btn-primary w-30" type="submit">Salvar</button>
-                </Form>
-
-                {/*1 - Carne cozida<br></br>
-                2 - Fricassê de carne<br></br>
-                3 - Soja<br></br>
-                4 - Pirão<br></br>
-                5 - Alcega<br></br>
-                5 - Abóbora<br></br>
-                <br></br>
-                Vegetariano
-                <br></br>
-                1 - Lentilha<br></br>
-                2 - Arroz integral<br></br>
-                3 - Fricassê de soja<br></br>
-                <br></br>
-                Sucos
-                <br></br>
-              1 - Frutas<br></br>*/}
-              </Typography>
-            </Box>
-          </Modal>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 export default ListItem;

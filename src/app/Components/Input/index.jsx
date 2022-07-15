@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { useField } from "@unform/core";
+import TextField, { StandardTextFieldProps } from "@mui/material/TextField";
 
-export function Input(name, ...rest) {
+export function Input({ name, placeholder }) {
   const inputRef = useRef(null);
   const { fieldName, registerField, defaultValue, error } = useField(name);
 
@@ -15,8 +16,16 @@ export function Input(name, ...rest) {
 
   return (
     <>
-      <input ref={inputRef} defaultValue={defaultValue} {...rest} />
-      {error && <span style={{ color: "#f00" }}>{error}</span>}
+    <div style={{margin: 10}}>
+      <TextField
+        label={placeholder}
+        inputRef={inputRef}
+        defaultValue={defaultValue}
+        error={error ? true : false}
+        helperText={error}
+        InputLabelProps={{ shrink: true }}
+      />
+    </div>
     </>
   );
 }
