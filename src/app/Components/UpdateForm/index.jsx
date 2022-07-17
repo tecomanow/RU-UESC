@@ -1,16 +1,25 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useEffect } from "react";
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 import { Box, Button, Modal, Typography, TextField } from '@mui/material';
-//import { Form } from 'react-bootstrap';
 import { FormHandles, SubmitHandler, Scope } from "@unform/core";
 import { Form } from "@unform/web";
-import './styles.css';
-import { margin } from '@mui/system';
 import { Input } from '../Input';
 import * as Yup from "yup";
-import DatePickerInput from "../DatePicker";
-import Select from "../Select";
 
-const ListItem = ({ name }) => {
+export default function FormDialog() {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const formRef = useRef(null);
 
@@ -58,8 +67,17 @@ const ListItem = ({ name }) => {
   };
 
   return (
-    <>
-            <Box
+    <div>
+      <Button variant="outlined" onClick={handleClickOpen}>
+        Alterar
+      </Button>
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Atualizar</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Preencha os campos para atualizar o cardápio: 
+          </DialogContentText>
+          <Box
       sx={{
         '& > :not(style)': { m: 5, width: '90ch' },
       }}>
@@ -118,12 +136,11 @@ const ListItem = ({ name }) => {
               </Button>
               <a style={{  marginLeft: 20}} href="/admin" className="btn btn-danger" data-toggle="modal">CANCELAR</a>
             </div>
+
           </Form>
         </Box>
-
-    </>
-  )
+        </DialogContent>
+      </Dialog>
+    </div>
+  );
 }
-
-
-export default ListItem;

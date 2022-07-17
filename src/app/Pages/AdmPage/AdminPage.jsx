@@ -4,6 +4,7 @@ import './AdminPage.css'
 import { Sidebar } from '../../Components/Sidebar/sidebar';
 import { useEffect, useState } from 'react';
 import { Api } from '../../../infrastructure/Api';
+import FormDialog from '../../Components/UpdateForm';
 
 export function AdminPage() {
 
@@ -57,16 +58,17 @@ export function AdminPage() {
                                         </Col>
                                         <Col style={{ margin: "auto 0" }}> {/* Centralizando verticalmente */}
                                             <a href="/menu" className="btn btn-success me-2" data-toggle="modal">Adicionar novo cardápio</a>
-                                            <a href="#" className="btn btn-danger" data-toggle="modal">Remover</a>
+                                
                                         </Col>
                                     </Row>
                                 </div>
                                 <table className="table table-striped table-hover">
                                     <thead>
                                         <tr>
-                                            <th><span><input type="checkbox"></input></span></th>
+                                            
                                             <th>Dia</th>
                                             <th>Data</th>
+                                            
                                         </tr>
                                     </thead>
 
@@ -74,12 +76,14 @@ export function AdminPage() {
                                             menu.map((menu) => (
                                                 <tbody className="align-middle">
 
-                                                <td><span><input type="checkbox" name="options[]" value="1"></input></span></td>
+                                                
                                                 <td>{menu.day}</td>
                                                 <td>{menu.date}</td>
-                                                <td className='py-2'>
-                                                    <a href="/product/{menu.id}" className="btn btn-outline-success me-2">Editar</a>
-                                                    <button onClick={()=> deleteMenu(menu.id)} className="btn btn-outline-danger" >Deletar</button>
+                                                <td className="align-middle">
+                                                    <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly"}}>
+                                                        <button onClick={()=> deleteMenu(menu.id)} className="btn btn-outline-danger" >Deletar</button>
+                                                        <FormDialog></FormDialog>
+                                                    </div>
                                                 </td>
                                                 </tbody>
                                             ))
