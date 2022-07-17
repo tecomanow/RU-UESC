@@ -9,7 +9,6 @@ export function LoginForm() {
 
     const navigate = useNavigate();
     
-    endPoint = 'http://localhost:8000/api'
 
     const userUseCase = new UserUseCase()
 
