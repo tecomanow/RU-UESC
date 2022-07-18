@@ -10,8 +10,11 @@ import * as Yup from "yup";
 import DatePickerInput from "../DatePicker";
 import Select from "../Select";
 import axios from 'axios';
+import { Navigate, useNavigate } from "react-router-dom";
 
 const ListItem = ({ name }) => {
+
+  const navigate = useNavigate();
 
   const formRef = useRef(null);
 
@@ -50,7 +53,8 @@ const ListItem = ({ name }) => {
       formRef.current?.setErrors({});
       console.log(data);
 
-      await axios.post(`http://localhost:8000/api/cardapios`, data);
+      await axios.post(`http://localhost:8000/api/cardapio`, data);
+      navigate('/admin')
 
     } catch (err) {
       if (err instanceof Yup.ValidationError) {

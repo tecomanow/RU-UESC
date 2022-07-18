@@ -27,27 +27,32 @@ export default function FormDialog() {
 
   const handleSubmit = async (data, { reset }) => {
     console.log(data);
+
     try {
       const schema = Yup.object().shape({
-        day: Yup.object().shape({
-        breakfast_main: Yup.string(),
-        breakfast_juice: Yup.string(),
-        breakfast_bread: Yup.string(),
-        breakfast_fruit: Yup.string(),
-        }),
-        noon: Yup.object().shape({
-          lunch_main: Yup.string(),
-          lunch_juice: Yup.string(),
-          lunch_salad: Yup.string(),
-          lunch_side_dish: Yup.string(),
-        }),
-        night: Yup.object().shape({
-        dinner_side_dish: Yup.string(),
-        dinner_juice: Yup.string(),
-        dinner_bread: Yup.string(),
-        dinner_fruit: Yup.string(),
-        }),
-        date: Yup.string(),
+        cardapio: Yup.object().shape({
+          cafe: Yup.object().shape({
+          principal: Yup.string(),
+          paes: Yup.string(),
+          frutas: Yup.string(),
+          sucos: Yup.string(),
+          data: Yup.string(),
+          }),
+          almoço: Yup.object().shape({
+            proteinas: Yup.string(),
+            saladas: Yup.string(),
+            complementos: Yup.string(),
+            sucos: Yup.string(),
+            data: Yup.string(),
+          }),
+          janta: Yup.object().shape({
+            principal: Yup.string(),
+            paes: Yup.string(),
+            frutas: Yup.string(),
+            sucos: Yup.string(),
+            data: Yup.string(),
+          }),
+        })
       });
 
       await schema.validate(data, {
@@ -55,7 +60,11 @@ export default function FormDialog() {
       });
       formRef.current?.setErrors({});
       console.log(data);
-      navigate("/admin")
+
+
+      //await axios.put(`http://localhost:8000/api/cardapio/${id}`, data);
+      navigate('/admin')
+
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
         let errorMessages = {};
@@ -90,16 +99,15 @@ export default function FormDialog() {
                       <div style={{  display: 'flex',
   flexDirection: 'row'}}>
                         
-             
+    <Scope path="cardapio">         
             <div style={{  display: 'flex',
   flexDirection: 'column', margin: 10}}>
     <h4 style={{textAlign: "center"}}>Café da manhã</h4>
-      <Scope path="day">
-              <Input name="breakfast_main" placeholder={"Principais"}/>
-              <Input name="breakfast_juice" placeholder={"Suco"}/>
-              <Input name="breakfast_bread" placeholder={"Pães"}/>
-              <Input name="breakfast_fruit" placeholder={"Frutas"}/>
-
+    <Scope path="cafe">
+      <Input name="principal" placeholder={"Principais"}/>
+      <Input name="paes" placeholder={"Paes"}/>
+      <Input name="frutas" placeholder={"Frutas"}/>
+      <Input name="sucos" placeholder={"Sucos"}/>
       </Scope>
 
             </div>
@@ -108,26 +116,25 @@ export default function FormDialog() {
             <div style={{  display: 'flex',
   flexDirection: 'column', margin: 10}}>
     <h4 style={{textAlign: "center"}}>Almoço</h4>
-    <Scope path="noon">
-              <Input name="lunch_main" placeholder={"Principais"}/>
-              <Input name="lunch_juice" placeholder={"Suco"}/>
-              <Input name="lunch_salad" placeholder={"Salada"}/>
-              <Input name="lunch_side_dish" placeholder={"Acompanhamento"}/>
-
+    <Scope path="almoco">
+    <Input name="proteinas" placeholder={"Proteinas"}/>
+              <Input name="saladas" placeholder={"Saladas"}/>
+              <Input name="complementos" placeholder={"Complementos"}/>
+              <Input name="sucos" placeholder={"Sucos"}/>
     </Scope>
             </div>
             <div style={{  display: 'flex',
   flexDirection: 'column', margin: 10}}>
     <h4 style={{textAlign: "center"}}>Jantar</h4>
-    <Scope path="night">
-              <Input name="dinner_side_dish" placeholder={"Acompanhamento"}/>
-              <Input name="dinner_juice" placeholder={"Suco"}/>
-              <Input name="dinner_bread" placeholder={"Pães"}/>
-              <Input name="dinner_fruit" placeholder={"Frutas"}/> 
-              
-    </Scope>
+    <Scope path="janta">
+      <Input name="principal" placeholder={"Principais"}/>
+      <Input name="paes" placeholder={"Paes"}/>
+      <Input name="frutas" placeholder={"Frutas"}/>
+      <Input name="sucos" placeholder={"Sucos"}/>
+     </Scope>
     
             </div>
+            </Scope>
             </div>
             <div style={{  display: 'flex',
    justifyContent: 'center'}}>

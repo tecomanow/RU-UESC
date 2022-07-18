@@ -5,6 +5,7 @@ import { Sidebar } from '../../Components/Sidebar/sidebar';
 import { useEffect, useState } from 'react';
 import { Api } from '../../../infrastructure/Api';
 import FormDialog from '../../Components/UpdateForm';
+import { Navigate } from 'react-router-dom';
 
 export function AdminPage() {
 
@@ -22,8 +23,9 @@ export function AdminPage() {
         setMenu(response.data);
     }
 
-    const deleteMenu = async ()=> {
-        //await Api.delete(`menu/${id}`)
+    const deleteMenu = async (id)=> {
+        await Api.delete(`http://127.0.0.1:8000/api/cardapio/${id}`)
+        Navigate("/admin");
         console.log("deletado");
     }
 
@@ -62,7 +64,7 @@ export function AdminPage() {
 
                                                 
                                                 <td>{"Teste"}</td>
-                                                <td>{menu.daTA}</td>
+                                                <td>{menu.data}</td>
                                                 <td className="align-middle">
                                                     <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly"}}>
                                                         <button onClick={()=> deleteMenu(menu.id)} className="btn btn-outline-danger" >Deletar</button>
