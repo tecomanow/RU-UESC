@@ -9,9 +9,8 @@ import FormDialog from '../../Components/UpdateForm';
 export function AdminPage() {
 
     //lista estatica, falta organizar o conteudo na lista
-    const [menu, setMenu] = useState([
-
-    ])
+    const [menu, setMenu] = useState(
+    )
 
     useEffect(() => {
         getAllMenus()
@@ -21,7 +20,7 @@ export function AdminPage() {
         //CHAMADA API
 
         const response = await Api.get("http://127.0.0.1:8000/api/cardapios");
-        setMenu(response);
+        setMenu(response.data);
     }
 
     const deleteMenu = async ()=> {
@@ -63,7 +62,7 @@ export function AdminPage() {
                                                 <tbody className="align-middle">
 
                                                 
-                                                <td>{menu.dia}</td>
+                                                <td>{"Teste"}</td>
                                                 <td>{menu.data}</td>
                                                 <td className="align-middle">
                                                     <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly"}}>
