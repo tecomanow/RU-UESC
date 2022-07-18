@@ -11,9 +11,10 @@ import { Input } from '../Input';
 import * as Yup from "yup";
 import { useNavigate } from 'react-router-dom';
 
-export default function FormDialog() {
+export default function FormDialog(props) {
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
+  console.log(props.id)
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -62,7 +63,7 @@ export default function FormDialog() {
       console.log(data);
 
 
-      //await axios.put(`http://localhost:8000/api/cardapio/${id}`, data);
+      await axios.put(`http://localhost:8000/api/cardapio/${props.id}`, data);
       navigate('/admin')
 
     } catch (err) {

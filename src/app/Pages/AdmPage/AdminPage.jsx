@@ -68,7 +68,7 @@ export function AdminPage() {
                                                 <td className="align-middle">
                                                     <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly"}}>
                                                         <button onClick={()=> deleteMenu(menu.id)} className="btn btn-outline-danger" >Deletar</button>
-                                                        <FormDialog></FormDialog>
+                                                        <FormDialog id={menu.id}></FormDialog>
                                                     </div>
                                                 </td>
                                                 </tbody>
