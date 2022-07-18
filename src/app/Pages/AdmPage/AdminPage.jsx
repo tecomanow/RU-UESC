@@ -9,8 +9,7 @@ import FormDialog from '../../Components/UpdateForm';
 export function AdminPage() {
 
     //lista estatica, falta organizar o conteudo na lista
-    const [menu, setMenu] = useState(
-    )
+    const [menu, setMenu] = useState([])
 
     useEffect(() => {
         getAllMenus()
@@ -63,7 +62,7 @@ export function AdminPage() {
 
                                                 
                                                 <td>{"Teste"}</td>
-                                                <td>{menu.data}</td>
+                                                <td>{menu.created_at}</td>
                                                 <td className="align-middle">
                                                     <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly"}}>
                                                         <button onClick={()=> deleteMenu(menu.id)} className="btn btn-outline-danger" >Deletar</button>

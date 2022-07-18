@@ -9,9 +9,11 @@ import { FormHandles, SubmitHandler, Scope } from "@unform/core";
 import { Form } from "@unform/web";
 import { Input } from '../Input';
 import * as Yup from "yup";
+import { useNavigate } from 'react-router-dom';
 
 export default function FormDialog() {
   const [open, setOpen] = React.useState(false);
+  const navigate = useNavigate();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -53,6 +55,7 @@ export default function FormDialog() {
       });
       formRef.current?.setErrors({});
       console.log(data);
+      navigate("/admin")
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
         let errorMessages = {};
