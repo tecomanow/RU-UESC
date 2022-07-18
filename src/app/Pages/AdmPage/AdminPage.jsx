@@ -62,7 +62,7 @@ export function AdminPage() {
 
                                                 
                                                 <td>{"Teste"}</td>
-                                                <td>{menu.created_at}</td>
+                                                <td>{menu.daTA}</td>
                                                 <td className="align-middle">
                                                     <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly"}}>
                                                         <button onClick={()=> deleteMenu(menu.id)} className="btn btn-outline-danger" >Deletar</button>
