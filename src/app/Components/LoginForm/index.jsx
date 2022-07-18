@@ -23,13 +23,14 @@ export function LoginForm() {
 
      var handleSubmit = async () => {
       
-      const user = {
+      const user = {usuario: {
         email: valorEmail,
         senha: valorSenha,
       }
+    }
       console.log(user)
-      //const response = await axios.post('url', user);
-      const response = true;
+      const response = await axios.post('http://127.0.0.1:8000/api/entrar', user);
+      //const response = true;
       if(response == true){
         navigate("/admin")
       }
