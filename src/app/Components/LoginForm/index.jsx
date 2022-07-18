@@ -29,12 +29,12 @@ export function LoginForm() {
       }
     }
       console.log(user)
-      const response = await axios.post('http://127.0.0.1:8000/api/entrar', user);
-      const permissao = response.data.permissao
-      console.log(permissao)
-      if(permissao == true){
+      //const response = await axios.post('http://127.0.0.1:8000/api/entrar', user);
+      //const permissao = response.data.permissao
+      //console.log(permissao)
+      //if(permissao == true){
         navigate("/admin")
-      }
+      //}
     }
 
     return (

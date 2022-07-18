@@ -10,21 +10,7 @@ export function AdminPage() {
 
     //lista estatica, falta organizar o conteudo na lista
     const [menu, setMenu] = useState([
-        {
-            id:"1",
-            day:"Segunda", 
-            date:"01/06",
-        },
-        {
-            id:"2",
-            day:"Terça", 
-            date:"02/06",
-        },
-        {
-            id:"3",
-            day:"Quarta", 
-            date:"03/06",
-        }
+
     ])
 
     useEffect(() => {
@@ -34,8 +20,8 @@ export function AdminPage() {
     const getAllMenus = async ()=> {
         //CHAMADA API
 
-        //const response = await Api.get("menu");
-        //setMenu(response);
+        const response = await Api.get("http://127.0.0.1:8000/api/cardapios");
+        setMenu(response);
     }
 
     const deleteMenu = async ()=> {
@@ -77,8 +63,8 @@ export function AdminPage() {
                                                 <tbody className="align-middle">
 
                                                 
-                                                <td>{menu.day}</td>
-                                                <td>{menu.date}</td>
+                                                <td>{menu.dia}</td>
+                                                <td>{menu.data}</td>
                                                 <td className="align-middle">
                                                     <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly"}}>
                                                         <button onClick={()=> deleteMenu(menu.id)} className="btn btn-outline-danger" >Deletar</button>
