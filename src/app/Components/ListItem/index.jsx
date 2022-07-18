@@ -19,27 +19,29 @@ const ListItem = ({ name }) => {
     console.log(data);
     try {
       const schema = Yup.object().shape({
-        cafe: Yup.object().shape({
-        principal: Yup.string(),
-        paes: Yup.string(),
-        frutas: Yup.string(),
-        sucos: Yup.string(),
-        data: Yup.string(),
-        }),
-        almoço: Yup.object().shape({
-          proteinas: Yup.string(),
-          saladas: Yup.string(),
-          complementos: Yup.string(),
-          sucos: Yup.string(),
-          data: Yup.string(),
-        }),
-        janta: Yup.object().shape({
+        cardapio: Yup.object().shape({
+          cafe: Yup.object().shape({
           principal: Yup.string(),
           paes: Yup.string(),
           frutas: Yup.string(),
           sucos: Yup.string(),
           data: Yup.string(),
-        }),
+          }),
+          almoço: Yup.object().shape({
+            proteinas: Yup.string(),
+            saladas: Yup.string(),
+            complementos: Yup.string(),
+            sucos: Yup.string(),
+            data: Yup.string(),
+          }),
+          janta: Yup.object().shape({
+            principal: Yup.string(),
+            paes: Yup.string(),
+            frutas: Yup.string(),
+            sucos: Yup.string(),
+            data: Yup.string(),
+          }),
+        })
       });
 
       await schema.validate(data, {
@@ -76,6 +78,7 @@ const ListItem = ({ name }) => {
   flexDirection: 'row'}}>
                         
              
+    <Scope path="cardapio">
             <div style={{  display: 'flex',
   flexDirection: 'column', margin: 10}}>
     <h4 style={{textAlign: "center"}}>Café da manhã</h4>
@@ -114,6 +117,7 @@ const ListItem = ({ name }) => {
      </Scope>
     
             </div>
+            </Scope>
             </div>
             <div style={{  display: 'flex',
    justifyContent: 'center'}}>
