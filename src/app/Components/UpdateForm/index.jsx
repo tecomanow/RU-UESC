@@ -25,7 +25,40 @@ export default function FormDialog(props) {
     setOpen(false);
   };
 
+  
   const formRef = useRef(null);
+  
+  useEffect( () => {
+    const getProductById = async () => {
+        const response = await axios.get(`http://localhost:8000/api/cardapio/${props.id}`)
+        formRef.current?.setData({
+          cardapio: {
+            cafe: {
+              principal: response.data.cardapio.cafe.principal,
+              paes: response.data.cardapio.cafe.paes,
+              frutas: response.data.cardapio.cafe.frutas,
+              sucos: response.data.cardapio.cafe.sucos,
+              data: response.data.cardapio.cafe.data
+            },
+            almoço: {
+              proteinas: response.data.cardapio.almoço.proteinas,
+              paes: response.data.cardapio.almoço.saladas,
+              frutas: response.data.cardapio.almoço.complementos,
+              sucos: response.data.cardapio.almoço.sucos,
+              data: response.data.cardapio.almoço.data
+            },
+            janta: {
+              principal: response.data.cardapio.janta.principal,
+              paes: response.data.cardapio.janta.paes,
+              frutas: response.data.cardapio.janta.frutas,
+              sucos: response.data.cardapio.janta.sucos,
+              data: response.data.cardapio.janta.data
+            }
+          }
+        })
+    }
+    getProductById();
+  }, [])
 
   const handleSubmit = async (data, { reset }) => {
     console.log(data);
