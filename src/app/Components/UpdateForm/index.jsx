@@ -10,6 +10,7 @@ import { Form } from "@unform/web";
 import { Input } from '../Input';
 import * as Yup from "yup";
 import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 export default function FormDialog(props) {
   const [open, setOpen] = React.useState(false);
@@ -53,13 +54,14 @@ export default function FormDialog(props) {
             sucos: Yup.string(),
             data: Yup.string(),
           }),
-        })
+        }),
       });
 
       await schema.validate(data, {
         abortEarly: false,
       });
       formRef.current?.setErrors({});
+      data.id = props.id
       console.log(data);
 
 
