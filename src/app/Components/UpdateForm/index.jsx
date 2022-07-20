@@ -10,7 +10,7 @@ import { Form } from "@unform/web";
 import { Input } from '../Input';
 import * as Yup from "yup";
 import { useNavigate } from 'react-router-dom';
-import axios from "axios";
+import axios from 'axios';
 
 export default function FormDialog(props) {
   const [open, setOpen] = React.useState(false);
