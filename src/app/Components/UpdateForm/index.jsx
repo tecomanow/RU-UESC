@@ -40,12 +40,12 @@ export default function FormDialog(props) {
               sucos: response.data.cardapio.cafe.sucos,
               data: response.data.cardapio.cafe.data
             },
-            almoço: {
-              proteinas: response.data.cardapio.almoço.proteinas,
-              paes: response.data.cardapio.almoço.saladas,
-              frutas: response.data.cardapio.almoço.complementos,
-              sucos: response.data.cardapio.almoço.sucos,
-              data: response.data.cardapio.almoço.data
+            almoco: {
+              proteinas: response.data.cardapio.almoco.proteinas,
+              saladas: response.data.cardapio.almoco.saladas,
+              complementos: response.data.cardapio.almoco.complementos,
+              sucos: response.data.cardapio.almoco.sucos,
+              data: response.data.cardapio.almoco.data
             },
             janta: {
               principal: response.data.cardapio.janta.principal,
@@ -99,7 +99,7 @@ export default function FormDialog(props) {
 
 
       await axios.put(`http://localhost:8000/api/cardapio/${props.id}`, data);
-      navigate('/admin')
+      navigate('/admin');
 
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
@@ -153,7 +153,7 @@ export default function FormDialog(props) {
   flexDirection: 'column', margin: 10}}>
     <h4 style={{textAlign: "center"}}>Almoço</h4>
     <Scope path="almoco">
-    <Input name="proteinas" placeholder={"Proteinas"}/>
+              <Input name="proteinas" placeholder={"Proteinas"}/>
               <Input name="saladas" placeholder={"Saladas"}/>
               <Input name="complementos" placeholder={"Complementos"}/>
               <Input name="sucos" placeholder={"Sucos"}/>
