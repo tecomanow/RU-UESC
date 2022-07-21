@@ -9,7 +9,10 @@ export default class App extends Component {
 
   render() {
     return (
-      <ScrollView onEndReached={this.handleEndReached} style={{ height: '100vh' }}>
+      <ScrollView
+        onEndReached={this.handleEndReached}
+        style={{ height: "100vh" }}
+      >
         <h1>React Scroll View</h1>
         <p>Awseome!</p>
       </ScrollView>

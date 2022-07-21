@@ -16,16 +16,16 @@ export function Input({ name, placeholder }) {
 
   return (
     <>
-    <div style={{margin: 10}}>
-      <TextField
-        label={placeholder}
-        inputRef={inputRef}
-        defaultValue={defaultValue}
-        error={error ? true : false}
-        helperText={error}
-        InputLabelProps={{ shrink: true }}
-      />
-    </div>
+      <div style={{ margin: 10 }}>
+        <TextField
+          label={placeholder}
+          inputRef={inputRef}
+          defaultValue={defaultValue}
+          error={error ? true : false}
+          helperText={error}
+          InputLabelProps={{ shrink: true }}
+        />
+      </div>
     </>
   );
 }

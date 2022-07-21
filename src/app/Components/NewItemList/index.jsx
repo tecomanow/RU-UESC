@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const NewItemInput = ({ onSubmit }) => {
+  const [newItem, setNewItem] = useState("");
 
-  const [newItem, setNewItem] = useState('');
-
-  function setNewTask({target}) {
+  function setNewTask({ target }) {
     setNewItem(target.value);
   }
 
@@ -16,16 +15,11 @@ const NewItemInput = ({ onSubmit }) => {
   return (
     <div>
       <form onSubmit={submit}>
-        <input
-          className="Todo-input"
-          placeholder="Digite uma nova tarefa"
-        />
-        <button type="submit">
-          Adicionar
-        </button>
+        <input className="Todo-input" placeholder="Digite uma nova tarefa" />
+        <button type="submit">Adicionar</button>
       </form>
     </div>
-  )
+  );
 };
 
 export default NewItemInput;
