@@ -159,7 +159,7 @@ input {
 .containerLayout {
   width: 90%;
   height: 100%;
-  background-color: aliceblue;
+  background-color: rgb(255, 255, 255);
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   ;
 }

@@ -60,8 +60,26 @@ export default class Home extends React.Component{
 
     getDate(){
         const current = new Date();
-        const date = `${current.getDate()}-${current.getMonth()+1}-${current.getFullYear()}`;
+        const date = this.getCompleteDate().replaceAll("/", "-");
+        console.log("data: " + date);
+        const dataTeste = new Date();
+        console.log("data teste: " + dataTeste.toLocaleString('pt-br',{ weekday: 'long'}));
         return date
+    }
+
+    getDataDay(data) {
+        var dia = data.split("/")[0]
+        var mes = data.split("/")[1]
+        var ano = data.split("/")[2]
+        const dataTeste = new Date(ano, mes-1, dia);
+        console.log("data teste: " + dataTeste.toLocaleString('pt-br',{ weekday: 'long'}));
+        return dataTeste.toLocaleString('pt-br',{ weekday: 'long'});
+    }
+
+    padLeadingZeros(num, size) {
+        var s = num+"";
+        while (s.length < size) s = "0" + s;
+        return s;
     }
 
     getCompleteDate(){
@@ -78,7 +96,7 @@ export default class Home extends React.Component{
                     <div className="pai conteudo" >
                         <div className='containerLayout'>
                             <h1>Cardápio do dia</h1>
-                            <h3>{this.getCompleteDate()}</h3>
+                            <h3>{this.getDataDay(this.getCompleteDate())} - {this.getCompleteDate()}</h3>
                             <Row>
                                 <Col>
                                     <Row ml-0 >

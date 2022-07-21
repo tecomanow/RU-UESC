@@ -14,7 +14,7 @@ export function AdminPage() {
 
     useEffect(() => {
         getAllMenus()
-    })
+    }, [])
 
     const getAllMenus = async ()=> {
         //CHAMADA API
@@ -27,6 +27,15 @@ export function AdminPage() {
         await Api.delete(`http://127.0.0.1:8000/api/cardapio/${id}`)
         Navigate("/admin");
         console.log("deletado");
+    }
+
+    function getData(data) {
+        var dia = data.split("-")[0]
+        var mes = data.split("-")[1]
+        var ano = data.split("-")[2]
+        const dataTeste = new Date(ano, mes-1, dia);
+        console.log("data teste: " + dataTeste.toLocaleString('pt-br',{ weekday: 'long'}));
+        return dataTeste.toLocaleString('pt-br',{ weekday: 'long'});
     }
 
     return (
@@ -63,7 +72,7 @@ export function AdminPage() {
                                                 <tbody className="align-middle">
 
                                                 
-                                                <td>{"Teste"}</td>
+                                                <td>{getData(menu.data)}</td>
                                                 <td>{menu.data}</td>
                                                 <td className="align-middle">
                                                     <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly"}}>

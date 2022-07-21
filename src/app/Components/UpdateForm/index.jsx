@@ -58,7 +58,7 @@ export default function FormDialog(props) {
         })
     }
     getProductById();
-  }, [])
+  }, )
 
   const handleSubmit = async (data, { reset }) => {
     console.log(data);
@@ -99,7 +99,7 @@ export default function FormDialog(props) {
 
 
       await axios.put(`http://localhost:8000/api/cardapio/${props.id}`, data);
-      navigate('/admin');
+      handleClose();
 
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
@@ -113,15 +113,18 @@ export default function FormDialog(props) {
       }
     }
   };
+  
 
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
         Alterar
       </Button>
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog open={open} onClose={handleClose} fullWidth="true"
+      maxWidth="md"
+      >
         <DialogTitle>Atualizar</DialogTitle>
-        <DialogContent>
+        <DialogContent >
           <DialogContentText>
             Preencha os campos para atualizar o cardápio: 
           </DialogContentText>

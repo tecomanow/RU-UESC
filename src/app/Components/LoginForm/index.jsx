@@ -21,20 +21,21 @@ export function LoginForm() {
       setValorSenha(event.target.value);
     }
 
-     var handleSubmit = async () => {
-      
+     var handleSubmit = async (event) => {
+      event.preventDefault();
       const user = {usuario: {
         email: valorEmail,
         senha: valorSenha,
       }
     }
       console.log(user)
-      //const response = await axios.post('http://127.0.0.1:8000/api/entrar', user);
-      //const permissao = response.data.permissao
-      //console.log(permissao)
-      //if(permissao == true){
-        navigate("/admin")
-      //}
+      const response = await axios.post('http://127.0.0.1:8000/api/entrar', user);
+      console.log(response);
+      const permissao = response.data.permissao;
+      console.log(permissao);
+      if(permissao == true){
+       navigate("/admin")
+      }
     }
 
     return (
@@ -43,7 +44,7 @@ export function LoginForm() {
             <img class="mb-4" src="https://propp.uesc.br/propp/img/logo_uesc.png" alt="" width="72" height="82"></img>
                 <h1 class="h3 mb-3 font-weight-normal">Entrar</h1>
                 <label for="inputEmail" class="sr-only">Endereço de email</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Endereço de email" required="" autofocus="" value={valorEmail} onChange={handleChangeEmail}></input>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Endereço de email" required="" autoFocus="" value={valorEmail} onChange={handleChangeEmail}></input>
                 <label for="inputPassword" class="sr-only">Senha</label>
                 <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required="" value={valorSenha} onChange={handleChangeSenha}></input>
 
