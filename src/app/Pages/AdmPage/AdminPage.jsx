@@ -1,4 +1,4 @@
-import { Row, Col } from "react-bootstrap";
+import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import "./AdminPage.css";
 import { Sidebar } from "../../Components/Sidebar/sidebar";
@@ -24,8 +24,8 @@ export function AdminPage() {
 
   const deleteMenu = async (id) => {
     await axios.delete(`http://127.0.0.1:8000/api/cardapio/${id}`);
+    Navigate("/admin");
     console.log("deletado");
-    window.location.reload(true);
   };
 
   function getData(data) {
