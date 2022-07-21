@@ -3,9 +3,9 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./AdminPage.css";
 import { Sidebar } from "../../Components/Sidebar/sidebar";
 import { useEffect, useState } from "react";
-import { Api } from "../../../infrastructure/Api";
 import FormDialog from "../../Components/UpdateForm";
 import { Navigate } from "react-router-dom";
+import axios from "axios";
 
 export function AdminPage() {
   //lista estatica, falta organizar o conteudo na lista
@@ -18,12 +18,12 @@ export function AdminPage() {
   const getAllMenus = async () => {
     //CHAMADA API
 
-    const response = await Api.get("http://127.0.0.1:8000/api/cardapios");
+    const response = await axios.get("http://127.0.0.1:8000/api/cardapios");
     setMenu(response.data);
   };
 
   const deleteMenu = async (id) => {
-    await Api.delete(`http://127.0.0.1:8000/api/cardapio/${id}`);
+    await axios.delete(`http://127.0.0.1:8000/api/cardapio/${id}`);
     Navigate("/admin");
     console.log("deletado");
   };
