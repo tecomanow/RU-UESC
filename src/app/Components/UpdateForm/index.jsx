@@ -180,14 +180,14 @@ export default function FormDialog(props) {
                 <Button variant="contained" type="submit">
                   Enviar
                 </Button>
-                <Button
+                <a
                   style={{ marginLeft: 20 }}
+                  onClick={handleClose()}
                   className="btn btn-danger"
                   data-toggle="modal"
-                  onClick={handleClose()}
                 >
                   CANCELAR
-                </Button>
+                </a>
               </div>
             </Form>
           </Box>

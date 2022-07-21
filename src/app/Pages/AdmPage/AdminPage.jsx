@@ -24,8 +24,8 @@ export function AdminPage() {
 
   const deleteMenu = async (id) => {
     await axios.delete(`http://127.0.0.1:8000/api/cardapio/${id}`);
-    Navigate("/admin");
     console.log("deletado");
+    window.location.reload(true);
   };
 
   function getData(data) {
