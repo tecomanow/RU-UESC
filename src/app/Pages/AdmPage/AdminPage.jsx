@@ -72,7 +72,7 @@ export function AdminPage() {
                                                 <tbody className="align-middle">
 
                                                 
-                                                <td>{"Teste"}</td>
+                                                <td>{getData(menu.data)}</td>
                                                 <td>{menu.data}</td>
                                                 <td className="align-middle">
                                                     <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly"}}>
