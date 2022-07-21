@@ -11,10 +11,14 @@ export function AdminPage() {
 
     //lista estatica, falta organizar o conteudo na lista
     const [menu, setMenu] = useState([])
+    const [refresh, setRefresh] = useState(false)
 
     useEffect(() => {
         getAllMenus()
-    }, [])
+    })
+
+    useEffect(() => {
+    },[refresh])
 
     const getAllMenus = async ()=> {
         //CHAMADA API
@@ -25,17 +29,8 @@ export function AdminPage() {
 
     const deleteMenu = async (id)=> {
         await Api.delete(`http://127.0.0.1:8000/api/cardapio/${id}`)
-        Navigate("/admin");
+        setRefresh(true);
         console.log("deletado");
-    }
-
-    function getData(data) {
-        var dia = data.split("-")[0]
-        var mes = data.split("-")[1]
-        var ano = data.split("-")[2]
-        const dataTeste = new Date(ano, mes-1, dia);
-        console.log("data teste: " + dataTeste.toLocaleString('pt-br',{ weekday: 'long'}));
-        return dataTeste.toLocaleString('pt-br',{ weekday: 'long'});
     }
 
     return (
@@ -72,7 +67,7 @@ export function AdminPage() {
                                                 <tbody className="align-middle">
 
                                                 
-                                                <td>{getData(menu.data)}</td>
+                                                <td>{"Teste"}</td>
                                                 <td>{menu.data}</td>
                                                 <td className="align-middle">
                                                     <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly"}}>
